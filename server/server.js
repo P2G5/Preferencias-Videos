@@ -1,11 +1,11 @@
 const express = require('express');
-const db = require('./../dataVideo/dataVideo');
+// const db = require('./../dataVideo/dataVideo');
 var cors = require('cors');
 var bodyParser = require('body-parser')
 const path = require('path');
 // db.db();
 /////to save it in db //////
-let videoModel = db.videoModel;
+// let videoModel = db.videoModel;
 let app =express();
 /////////bodyparser  to be able to read the “body” of an incoming JSON object.
 /////////SO we dont need to use that bcause  body-parser implementation is now included in the default Express package 
@@ -50,7 +50,7 @@ if (process.env.NODE_ENV === 'production') {
      }); 
 });//test
 
-var port = process.env.PORT ||6000;
+var port = process.env.PORT ||5000;
 app.listen(port,()=>{
     console.log("Port",port)
 }); 
