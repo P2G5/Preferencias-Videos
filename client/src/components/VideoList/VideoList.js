@@ -1,6 +1,6 @@
 import React from 'react';
-import '../style/videolist.css';
-import VideoItem from './VideoItem';
+import './videolist.css';
+import VideoItem from '../VideoItem/VideoItem';
 // import cors from 'cors';
 
 const VideoList = ({videos , handleVideoSelect}) => {

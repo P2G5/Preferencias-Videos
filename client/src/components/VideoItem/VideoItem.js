@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/video.css';
+import './video.css';
 // import cors from 'cors';
 
 const VideoItem = ({video , handleVideoSelect}) => {

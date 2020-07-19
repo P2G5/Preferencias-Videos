@@ -1,9 +1,9 @@
 import React from 'react';
-import SearchBar from './Searchbar';
-import youtube from '../apis/youtube';
-import VideoList from './VideoList';
-import VideoDetail from './VideoDetail';
-import './../style/app.css';
+import SearchBar from '../Searchbar/Searchbar.js';
+import youtube from '../../apis/youtube.js';
+import VideoList from '../VideoList/VideoList.js';
+import VideoDetail from '../VideoDetail/VideoDetail';
+import './app.css';
 // import cors from 'cors';
 
 class App extends React.Component {

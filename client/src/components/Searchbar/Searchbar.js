@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/searchbar.css';
+import './searchbar.css';
 // import cors from 'cors';
 
 
