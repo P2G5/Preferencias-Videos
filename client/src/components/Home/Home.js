@@ -3,6 +3,7 @@ import SearchBar from '../Searchbar/Searchbar.js';
 import youtube from '../../apis/youtube.js';
 import VideoList from '../VideoList/VideoList.js';
 import VideoDetail from '../VideoDetail/VideoDetail';
+import HomePage from '../HomePage/HomePage.js';
 import './app.css';
 // import cors from 'cors';
 
@@ -41,6 +42,7 @@ class App extends React.Component {
                         </div>
                     </div>
                 </div>
+                <HomePage/>
             </div>
         )
     }
