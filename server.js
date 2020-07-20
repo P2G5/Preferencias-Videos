@@ -1,8 +1,11 @@
 const express = require('express');
+var loginRouter = require('./routes/api/login');
+var signupRouter = require('./routes/api/User');
 // const db = require('./../dataVideo/dataVideo');
 var cors = require('cors');
 var bodyParser = require('body-parser')
 const path = require('path');
+//const db =  require('./config/db.js');
 // db.db();
 /////to save it in db //////
 // let videoModel = db.videoModel;
@@ -10,9 +13,11 @@ let app =express();
 /////////bodyparser  to be able to read the “body” of an incoming JSON object.
 /////////SO we dont need to use that bcause  body-parser implementation is now included in the default Express package 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended : false }));
-app.use(bodyParser.json());
+/*app.use(bodyParser.urlencoded({ extended : false }));
+app.use(bodyParser.json());*/
 app.use(express.json());
+app.use('/login', loginRouter);
+app.use('/signup',signupRouter);
 //connect front and back
 app.use(express.static(__dirname + './../../public'));
 
