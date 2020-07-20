@@ -1,3 +1,12 @@
 .aa {
-    border-style: ridge
+  border-style: ridge;
+}
+
+/* body {
+  background-color: black;
+} */
+
+.renderComady {
+  background-color: rgb(231, 231, 231);
+  border: 2px solid #1565;
 }
