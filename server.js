@@ -1,6 +1,6 @@
 const express = require("express");
 // const db = require('./../dataVideo/dataVideo');
-const fs = require('fs')
+const fs = require("fs");
 var cors = require("cors");
 var bodyParser = require("body-parser");
 const path = require("path");
@@ -15,16 +15,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 //connect front and back
-app.use(express.static(__dirname + "./../../public"));
+app.use("/", express.static(path.join(__dirname, "/client/build")));
 
-// for deployment
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("./../../public"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./../../public")); // relative path
-  });
-}
+///-------------------------------------------------------------
+//for homepage form reactjs
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+});
+//-----------------------------------------------
 
 app.get("/", function (req, res) {
   fs.readFile("youtube.json", function (err, data) {
@@ -53,7 +51,7 @@ app.post("/save", (req, res) => {
   });
 }); //test
 
-var port = process.env.PORT || 5001;
+var port = process.env.PORT || 5003;
 app.listen(port, () => {
   console.log("Port", port);
 });
