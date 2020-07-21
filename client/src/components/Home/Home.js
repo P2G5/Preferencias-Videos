@@ -4,6 +4,7 @@ import youtube from '../../apis/youtube.js';
 import VideoList from '../VideoList/VideoList.js';
 import VideoDetail from '../VideoDetail/VideoDetail';
 import HomePage from '../HomePage/HomePage.js';
+import YouTube from 'react-youtube';
 import './app.css';
 // import cors from 'cors';
 
@@ -44,6 +45,11 @@ class App extends React.Component {
                 </div>
                 <HomePage/>
             </div>
+            // <div className = "back">
+            //     <div class = "you" >
+            //         <YouTube videoId="2g811Eo7K8U"  onReady={this._onReady} />
+            //     </div>
+            // </div>
         )
     }
 }

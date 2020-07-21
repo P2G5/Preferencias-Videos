@@ -44,8 +44,8 @@ class homePage extends React.Component {
           <div>
             <h2> Responsive </h2>
             <Slider {...settings}>
-              <div class = "aa">
-                <img src = "https://i.ytimg.com/vi/7PXLPzcIydw/hqdefault.jpg"></img>
+              <div>
+                {/* <img src = "https://i.ytimg.com/vi/7PXLPzcIydw/hqdefault.jpg"></img> */}
               </div>
               <div>
                 <h3>2</h3>
