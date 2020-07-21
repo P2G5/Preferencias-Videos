@@ -1,8 +1,14 @@
-import React from  'react' ;
+import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/Home/Home';
 
+import App from './components/App';
 
 ReactDOM.render(
-    <App />, document.querySelector('#root'));
-
+  <React.StrictMode>
+    {/* <Navbar /> */}
+    {/* <SignIn /> */}
+    {/* <SignUp /> */}
+    <App />
+  </React.StrictMode>,
+  document.querySelector('#root')
+);
