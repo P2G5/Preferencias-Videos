@@ -1,5 +1,4 @@
 import React from "react";
-import SearchBar from "../Searchbar/Searchbar.js";
 import youtube from "../../apis/youtube.js";
 import VideoList from "../VideoList/VideoList.js";
 import VideoDetail from "../VideoDetail/VideoDetail";
@@ -16,7 +15,7 @@ class App extends React.Component {
   handleSubmit = async (termFromSearchBar) => {
     const response = await youtube.get("/search", {
       params: {
-        q: termFromSearchBar,
+        q: `Full movie:${termFromSearchBar}`,
       },
     });
 
@@ -30,28 +29,48 @@ class App extends React.Component {
   };
 
   render() {
-    return (
-      <div>
-        <Navbar />
-        <div className="uicontainer">
-          <HomePage />
-          <SearchBar handleFormSubmit={this.handleSubmit} />
-          <div className="ui grid">
-            <div className="ui row">
-              <div className="eleven wide column">
-                <VideoDetail video={this.state.selectedVideo} />
-              </div>
-              <div className="col-4">
-                <VideoList
-                  handleVideoSelect={this.handleVideoSelect}
-                  videos={this.state.videos}
-                />
+      if(this.state.videos.length === 0 ){
+        return (
+            <div>
+              <Navbar handleFormSubmit={this.handleSubmit}/>
+              <div className="uicontainer">
+                <HomePage />
+               
+                <div className="ui grid">
+                  <div className="ui row">
+                    <div className="eleven wide column">
+                      <VideoDetail video={this.state.selectedVideo} />
+                    </div>
+                    <div className="col-4">
+                      <VideoList
+                        handleVideoSelect={this.handleVideoSelect}
+                        videos={this.state.videos}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    );
+          );
+      } else{
+        return (
+            <div>
+              <Navbar handleFormSubmit={this.handleSubmit}/>
+              <div className="uicontainer">
+                    <div className="eleven wide column">
+                      <VideoDetail video={this.state.selectedVideo} />
+                    </div>
+                    <div className="col-4">
+                      <VideoList
+                        handleVideoSelect={this.handleVideoSelect}
+                        videos={this.state.videos}
+                      />
+                </div>
+              </div>
+            </div>
+          );
+      }
+    
   }
 }
 

@@ -1,8 +1,0 @@
-input.txt
-dfs
-sdf
-sdf
-sd
-fsd
-fsd
-f

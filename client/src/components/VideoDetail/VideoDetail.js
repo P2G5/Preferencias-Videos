@@ -8,7 +8,7 @@ const VideoDetail = ({ video }) => {
 
   if (!video) {
     return <div>
-       <h4>Enter search keyword to load...</h4>
+       
        <br></br>
         </div>;
   }
