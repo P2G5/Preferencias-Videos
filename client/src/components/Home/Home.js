@@ -5,6 +5,8 @@ import VideoDetail from "../VideoDetail/VideoDetail";
 import HomePage from "../HomePage/HomePage.js";
 import Navbar from "../Navbar/Navbar.js";
 import "./app.css";
+import Sigin from "../SignIN/SignIn.js";
+import Sigup from "../SignUP/Signup.js";
 // import cors from 'cors';
 
 class App extends React.Component {
@@ -29,48 +31,49 @@ class App extends React.Component {
   };
 
   render() {
-      if(this.state.videos.length === 0 ){
-        return (
-            <div>
-              <Navbar handleFormSubmit={this.handleSubmit}/>
-              <div className="uicontainer">
-                <HomePage />
-               
-                <div className="ui grid">
-                  <div className="ui row">
-                    <div className="eleven wide column">
-                      <VideoDetail video={this.state.selectedVideo} />
-                    </div>
-                    <div className="col-4">
-                      <VideoList
-                        handleVideoSelect={this.handleVideoSelect}
-                        videos={this.state.videos}
-                      />
-                    </div>
-                  </div>
+    if (this.state.videos.length === 0) {
+      return (
+        <div>
+          <Sigin />
+          <Sigup />
+          <Navbar handleFormSubmit={this.handleSubmit} />
+          <div className="uicontainer">
+            <HomePage />
+
+            <div className="ui grid">
+              <div className="ui row">
+                <div className="eleven wide column">
+                  <VideoDetail video={this.state.selectedVideo} />
+                </div>
+                <div className="col-4">
+                  <VideoList
+                    handleVideoSelect={this.handleVideoSelect}
+                    videos={this.state.videos}
+                  />
                 </div>
               </div>
             </div>
-          );
-      } else{
-        return (
-            <div>
-              <Navbar handleFormSubmit={this.handleSubmit}/>
-              <div className="uicontainer">
-                    <div className="eleven wide column">
-                      <VideoDetail video={this.state.selectedVideo} />
-                    </div>
-                    <div className="col-4">
-                      <VideoList
-                        handleVideoSelect={this.handleVideoSelect}
-                        videos={this.state.videos}
-                      />
-                </div>
-              </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Navbar handleFormSubmit={this.handleSubmit} />
+          <div className="uicontainer">
+            <div className="eleven wide column">
+              <VideoDetail video={this.state.selectedVideo} />
             </div>
-          );
-      }
-    
+            <div className="col-4">
+              <VideoList
+                handleVideoSelect={this.handleVideoSelect}
+                videos={this.state.videos}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 
