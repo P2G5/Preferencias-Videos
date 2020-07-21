@@ -1,5 +1,5 @@
 import React from 'react';
-//import Navbar from '../Navbar/Navbar.js'
+
 import SearchBar from '../Searchbar/Searchbar.js';
 import youtube from '../../apis/youtube.js';
 import VideoList from '../VideoList/VideoList.js';
