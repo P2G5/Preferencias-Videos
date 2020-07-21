@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./HomePage.css";
-import Navbar from "../Navbar/Navbar.js";
 import youtubeApi from "../../apis/youtube.js";
 // import App from "../Home/Home";
 import axios from "axios";
