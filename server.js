@@ -4,6 +4,7 @@ const fs = require("fs");
 var cors = require("cors");
 const path = require("path");
 const Video = require("./models/Video.js");
+const Users = require("./models/User.js");
 
 let app = express();
 app.use(cors());
@@ -25,26 +26,33 @@ app.get("/", function (req, res) {
   });
 });
 
-// app.post("/save", (req, res) => {
-//   const { linkVideo, titleVedio, descriptionVideo, photoUrl, date } = req.body;
-//      console.log(linkVideo ,titleVedio ,descriptionVideo,photoUrl,date);
-//   ////first date in schema second date from req.body all prop same
-//   let videoDoc = new VideoModel({
-//     linkVideo: linkVideo,
-//     titleVedio: titleVedio,
-//     descriptionVideo: descriptionVideo,
-//     photoUrl: photoUrl,
-//     date: new Date(),
-//   });
+app.post("/createUsers", (req, res) => {
+  let videoDoc = new Users(req.body);
 
-//   videoDoc.save((err) => {
-//     if (err) {
-//       res.status(500).send(err);
-//     } else {
-//       res.status(201).send("Savd Input");
-//     }
-//   });
-// }); //test
+  videoDoc.save((err) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(201).send("Savd Input");
+    }
+  });
+});
+app.post("/signin", (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
+  console.log(req);
+  Users.find({ email: email, password: password })
+    .then((result) => {
+      console.log(result[0].password);
+      res.status(202).send(true);
+
+      // console.log(result);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+      console.log(err);
+    });
+});
 
 //-------------------------------------------
 app.post("/save", (req, res) => {

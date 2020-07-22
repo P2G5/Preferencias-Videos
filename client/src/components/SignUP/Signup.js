@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 // import Navbar from "../Navbar/Navbar.js";
-import * as ReactBootstrap from 'react-bootstrap';
-import axios from 'axios';
+import * as ReactBootstrap from "react-bootstrap";
+import axios from "axios";
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      password: '',
+      name: "",
+      email: "",
+      password: "",
     };
   }
   handleChange(event) {
@@ -18,7 +18,8 @@ class SignUp extends React.Component {
     });
   }
   handleSubmit(event) {
-    event.preventDefult();
+    event.preventDefault();
+    // event.preventDefult();
     axios
       .post(`http://localhost:5003/createUsers`, {
         name: this.state.name,
@@ -29,67 +30,69 @@ class SignUp extends React.Component {
         console.log(result.data);
       })
       .catch((err) => {
-        console.log('err', err);
+        console.log("err", err);
       });
   }
   render() {
     return (
       <div>
         {/* <Navbar /> */}
-        <ReactBootstrap.Form onSubmit={this.handleSubmit.bind(this)}>
+        <ReactBootstrap.Form>
           <br />
           <br />
           <ReactBootstrap.InputGroup
-            className='mb-3'
-            style={{ width: '50%', margin: '10px' }}
-            sm={10}>
+            className="mb-3"
+            style={{ width: "50%", margin: "10px" }}
+            sm={10}
+          >
             <ReactBootstrap.InputGroup.Prepend>
               <ReactBootstrap.InputGroup.Text>
                 UserName
               </ReactBootstrap.InputGroup.Text>
             </ReactBootstrap.InputGroup.Prepend>
             <ReactBootstrap.FormControl
-              name='name'
-              type='text'
-              placeholder='Enter Your User Name'
+              name="name"
+              type="text"
+              placeholder="Enter Your User Name"
               value={this.state.name}
               onChange={this.handleChange.bind(this)}
             />
           </ReactBootstrap.InputGroup>
           <br />
           <br />
-          <ReactBootstrap.Form.Group controlId='formGroupEmail'>
+          <ReactBootstrap.Form.Group controlId="formGroupEmail">
             <ReactBootstrap.Form.Label column sm={10}>
               Email address
             </ReactBootstrap.Form.Label>
             <ReactBootstrap.Form.Control
-              type='email'
-              name='email'
-              placeholder='Enter email'
+              type="email"
+              name="email"
+              placeholder="Enter email"
               value={this.state.email}
               onChange={this.handleChange.bind(this)}
               sm={10}
-              style={{ width: '50%', margin: '10px' }}
+              style={{ width: "50%", margin: "10px" }}
             />
           </ReactBootstrap.Form.Group>
-          <ReactBootstrap.Form.Group controlId='formGroupPassword'>
+          <ReactBootstrap.Form.Group controlId="formGroupPassword">
             <ReactBootstrap.Form.Label column sm={10}>
               Password
             </ReactBootstrap.Form.Label>
             <ReactBootstrap.Form.Control
-              type='password'
-              name='password'
-              placeholder='Password'
+              type="password"
+              name="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handleChange.bind(this)}
               sm={10}
-              style={{ width: '50%', margin: '10px' }}
+              style={{ width: "50%", margin: "10px" }}
             />
           </ReactBootstrap.Form.Group>
           <ReactBootstrap.Button
-            variant='primary'
-            type='submit'
-            onClick={this.handleSubmit.bind(this)}>
+            // variant="primary"
+            // type="submit"
+            onClick={this.handleSubmit.bind(this)}
+          >
             Sign-UP
           </ReactBootstrap.Button>
         </ReactBootstrap.Form>

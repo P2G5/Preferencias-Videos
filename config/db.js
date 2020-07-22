@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 const connectDB = mongoose.connect(
   //   "mongodb+srv://user_shortLink:A123A123@cluster0-51n2q.mongodb.net/flybooking",
-  " mongodb://localhost/porjectDB",
+  " mongodb://localhost/VideosYoutube",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

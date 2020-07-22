@@ -1,82 +1,117 @@
-import React from 'react';
-import * as ReactBootstrap from 'react-bootstrap';
-import GoogleLogin from 'react-google-login';
-import '../SignIN/Signin.css';
+import React from "react";
+import * as ReactBootstrap from "react-bootstrap";
+import GoogleLogin from "react-google-login";
+import "../SignIN/Signin.css";
+import axios from "axios";
+
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       login: false,
-      name: '',
+      name: "",
+      email: "",
+      password: "",
     };
     this.responseGoogle = this.responseGoogle.bind(this);
   }
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5003/signin", {
+        email: this.state.email,
+        password: this.state.password,
+      })
+      .then((result) => {
+        console.log("SDF");
+        if (result) {
+          console.log("result   ", result);
+          this.setState({ singip: "sign in success " });
+          setTimeout(function() {
+            window.location.href = "/";
+          }, 2000);
+        }
+      })
+      .catch((err) => {
+        console.log("ERROR FROM AXIOS ", err);
+        // this.setState({ singip: "Woring Email or Password " });
+      });
+  }
   responseGoogle = (res) => {
     this.setState({ login: true });
-    localStorage.setItem('login', this.state.login);
-    localStorage.setItem('name', res.profileObj.name);
+    localStorage.setItem("login", this.state.login);
+    localStorage.setItem("name", res.profileObj.name);
     console.log(res);
     console.log(res.profileObj);
     this.setState({ name: res.profileObj.name });
-    console.log('name', this.state.name);
+    console.log("name", this.state.name);
   };
   render() {
     return (
       <div>
         <ReactBootstrap.Form>
-          <ReactBootstrap.Form.Group controlId='formHorizontalEmail'>
+          <ReactBootstrap.Form.Group controlId="formHorizontalEmail">
             <ReactBootstrap.Form.Label column sm={2}>
               Email
             </ReactBootstrap.Form.Label>
             <ReactBootstrap.Col sm={10}>
               <ReactBootstrap.Form.Control
-                type='email'
-                placeholder='Email'
-                style={{ width: '50%' }}
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={this.handleChange.bind(this)}
+                style={{ width: "50%" }}
               />
             </ReactBootstrap.Col>
           </ReactBootstrap.Form.Group>
 
-          <ReactBootstrap.Form.Group controlId='formHorizontalPassword'>
+          <ReactBootstrap.Form.Group controlId="formHorizontalPassword">
             <ReactBootstrap.Form.Label column sm={2}>
               Password
             </ReactBootstrap.Form.Label>
             <ReactBootstrap.Col sm={10}>
               <ReactBootstrap.Form.Control
-                type='password'
-                placeholder='Password'
-                style={{ width: '50%' }}
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={this.handleChange.bind(this)}
+                style={{ width: "50%" }}
               />
             </ReactBootstrap.Col>
           </ReactBootstrap.Form.Group>
 
-          <ReactBootstrap.Form.Group controlId='formHorizontalCheck'>
-            <ReactBootstrap.Col sm={{ span: 10, offset: 2, margin: '10px' }}>
-              <ReactBootstrap.Form.Check label='Remember me' />
+          <ReactBootstrap.Form.Group controlId="formHorizontalCheck">
+            <ReactBootstrap.Col sm={{ span: 10, offset: 2, margin: "10px" }}>
+              <ReactBootstrap.Form.Check label="Remember me" />
             </ReactBootstrap.Col>
           </ReactBootstrap.Form.Group>
 
           <ReactBootstrap.Form.Group>
             <ReactBootstrap.Col sm={{ span: 10, offset: 2 }}>
-              <ReactBootstrap.Button type='submit' Link href='/'>
+              <ReactBootstrap.Button onClick={this.handleSubmit.bind(this)} Link href="/">
                 Sign in
               </ReactBootstrap.Button>
               <br />
 
-              <label className='sigupLab'>
-                If You Are New <a href='/SignUP'>Sign Up</a>
+              <label className="sigupLab">
+                If You Are New <a href="/SignUP">Sign Up</a>
               </label>
               <br />
             </ReactBootstrap.Col>
           </ReactBootstrap.Form.Group>
           <GoogleLogin
             Link
-            to='/'
-            clientId='1012158432115-qkgnp14lnivitq2hhccncpe27oifptqq.apps.googleusercontent.com'
-            buttonText='login'
+            to="/"
+            clientId="1012158432115-qkgnp14lnivitq2hhccncpe27oifptqq.apps.googleusercontent.com"
+            buttonText="login"
             onSuccess={this.responseGoogle}
             onFailure={this.responseGoogle}
-            cookiePolicy={'single_host_origin'}
+            cookiePolicy={"single_host_origin"}
           />
         </ReactBootstrap.Form>
       </div>
