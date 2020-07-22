@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./style.css"
 import Navbar from "../Navbar/Navbar.js";
 
 class Profile extends React.Component {
@@ -39,19 +40,19 @@ class Profile extends React.Component {
   render() {
     var viewVideos = this.state.videos.map((video) => {
       return (
-        <div className=" video-item item">
+        <div className="video-item">
           <img
             className="ui image"
             src={video.photoUrl}
             alt={video.descriptionVideo}
           />
           <div className="content">
-            <div className="title ">{video.descriptionVideo}</div>
-            <div className="description ">{video.titleVedio}</div>
+            <div className="title">{video.descriptionVideo}</div>
+            <div className="description">{video.titleVedio}</div>
           </div>
           <br />
           <div className="date ">{video.date}</div>
-          <button
+          <button className="btn"
             onClick={() => {
               axios
                 .delete(`http://localhost:5003/api/${video._id}`)

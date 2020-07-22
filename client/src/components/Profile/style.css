@@ -1,0 +1,10 @@
+.video-item  {
+  border: 1px solid black;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+  border-radius: 5px;
+  background: #282e33;
+  border-top: 3px solid #434a52;
+
+}
