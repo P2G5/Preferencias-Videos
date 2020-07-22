@@ -5,8 +5,7 @@ import VideoDetail from "../VideoDetail/VideoDetail";
 import HomePage from "../HomePage/HomePage.js";
 import Navbar from "../Navbar/Navbar.js";
 import "./app.css";
-import Sigin from "../SignIN/SignIn.js";
-import Sigup from "../SignUP/Signup.js";
+
 // import cors from 'cors';
 
 class App extends React.Component {
@@ -31,11 +30,10 @@ class App extends React.Component {
   };
 
   render() {
+   
     if (this.state.videos.length === 0) {
       return (
         <div>
-          <Sigin />
-          <Sigup />
           <Navbar handleFormSubmit={this.handleSubmit} />
           <div className="uicontainer">
             <HomePage />

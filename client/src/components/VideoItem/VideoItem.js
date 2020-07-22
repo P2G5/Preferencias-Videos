@@ -4,7 +4,7 @@ import './video.css';
 
 const VideoItem = ({video , handleVideoSelect}) => {
     return (
-        <div onClick={ () => handleVideoSelect(video)} className=' video-item item'>
+        <div  className=' video-item item'>
             <img className='ui image' src={video.snippet.thumbnails.medium.url} alt={video.snippet.description}/>
             <div className='content'>
             <div className='title '>{video.snippet.title}</div>
@@ -12,7 +12,7 @@ const VideoItem = ({video , handleVideoSelect}) => {
             </div>
             <br>
             </br>
-           
+           <button onClick={ () => handleVideoSelect(video)}>click</button>
         </div>
     )
 };

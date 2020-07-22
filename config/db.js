@@ -1,22 +1,22 @@
-const mongoose = require('mongoose');
-const config =require('config');
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+const connectDB = mongoose.connect(
+  //   "mongodb+srv://user_shortLink:A123A123@cluster0-51n2q.mongodb.net/flybooking",
+  " mongodb://localhost/porjectDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
-// const db = config.get('mongoURI');
-const db = "mongodb+srv://wael123:wael123@cluster0.epeoa.mongodb.net/users?retryWrites=true&w=majority"
-const connectDB = async ()=>{
-    try{
-        await mongoose.connect(db,
-            { useNewUrlParser: true ,
-              useCreateIndex:true,
-              useUnifiedTopology: true
-            }
-            );
-        console.log("Connect")
-    }catch(err){
-         console.error(err.message);
-         //Exit
-        //  process.exit(1);
-    }
-}
+var db = mongoose.connection;
 
-module.exports =connectDB;
+db.on("error", function () {
+  console.log("mongoose connection error");
+});
+
+db.once("open", function () {
+  console.log("mongoose connected successfully");
+});
+
+module.exports = connectDB;

@@ -1,17 +1,12 @@
 const express = require("express");
-// const VideoModel = require("./models/Video.js");
-const Users = require("./dataVideo/dataVideo.js")
+const dbconnection = require("./config/db.js");
 const fs = require("fs");
 var cors = require("cors");
 const path = require("path");
-// db.db();
-/////to save it in db //////
-// let videoModel = db.videoModel;
-let app = express();
-/////////bodyparser  to be able to read the “body” of an incoming JSON object.
-/////////SO we dont need to use that bcause  body-parser implementation is now included in the default Express package
-app.use(cors());
+const Video = require("./models/Video.js");
 
+let app = express();
+app.use(cors());
 
 app.use(express.json());
 //connect front and back
@@ -53,10 +48,7 @@ app.get("/", function (req, res) {
 
 //-------------------------------------------
 app.post("/save", (req, res) => {
-  // const { linkVideo, titleVedio, descriptionVideo, photoUrl, date } = req.body;
-    //  console.log(linkVideo ,titleVedio ,descriptionVideo,photoUrl,date);
-  ////first date in schema second date from req.body all prop same
-  let videoDoc = new Users(req.body);
+  let videoDoc = new Video(req.body);
 
   videoDoc.save((err) => {
     if (err) {
