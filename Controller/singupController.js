@@ -24,7 +24,7 @@ exports.create_account = (req, res) =>{
 }
 
 
-/*async function create_account (req,res) { 
+/* **async function create_account (req,res) { 
     
     const {name , email,password   } = req.body;
     let user = await UserModel.findOne({email});
