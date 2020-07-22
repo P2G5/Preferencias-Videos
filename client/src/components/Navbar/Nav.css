@@ -1,37 +1,18 @@
-/* main {
-  margin: 16px;
+.btn-outline-info {
+  color: #b53a84;
+  border-color: #b53a84;
 }
-
-.navbar {
-  display: flex;
-  align-items: center;
-
-  background: rgb(107, 104, 100);
-  color: white;
-  font-family: Helvetica;
-  font-weight: 300;
+.btn-outline-info:hover {
+  color: #fff;
+  background-color: #b53a84;
+  border-color: #b53a84;
 }
-
-.navbar__title {
-  margin-right: auto;
-  font-size: 150%;
-  padding: 12px 16px;
+.btn-outline-info:not(:disabled):not(.disabled):active {
+  color: #fff;
+  background-color: #b53a84;
+  border-color: #b53a84;
+ 
 }
-
-.navbar__item {
-  padding: 16px 16px;
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-.search .srchbtn {
-  background-color: darkgrey;
-  padding: 10px;
-  width: 106px;
-  border-radius: 9px;
-  -moz-border-radius: 9px;
-  -webkit-border-radius: 9px;
-} */
 
 .Searchbox {
   text-size-adjust: 1500px;

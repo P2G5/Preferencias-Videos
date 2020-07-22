@@ -13,7 +13,7 @@ class Navbar extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      word: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
   handleSubmit = (event) => {
@@ -26,18 +26,16 @@ class Navbar extends React.Component {
       return (
         <div>
           <ReactBootstrap.Navbar sticky="top" bg="dark" variant="dark">
-            <ReactBootstrap.Navbar.Brand
-              href="#home"
-              style={{ color: "#b53a84" }}
-            >
+            <ReactBootstrap.Navbar.Brand href="/" style={{ color: "#b53a84" }}>
               PREFERENCIAS-VIDEOS
             </ReactBootstrap.Navbar.Brand>
             <ReactBootstrap.Nav className="mr-auto">
               <ReactBootstrap.Nav.Link href="/">Home</ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link href="/sigin">
-                Welcome <a href="/">{localStorage.getItem("name")}</a>
+              <ReactBootstrap.Nav.Link href="/Profil">
+                Welcome{" "}
+                <a href="/Profil">{localStorage.getItem("givenName")}</a>
               </ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link href="/sigin">
+              <ReactBootstrap.Nav.Link href="/SignIN">
                 <a
                   onClick={() => {
                     localStorage.clear();
@@ -52,6 +50,7 @@ class Navbar extends React.Component {
               <ReactBootstrap.FormControl
                 onChange={this.handleChange}
                 type="text"
+                name="word"
                 placeholder="Search video"
                 className="Searchbox"
                 value={this.state.word}
@@ -70,15 +69,12 @@ class Navbar extends React.Component {
       return (
         <div>
           <ReactBootstrap.Navbar sticky="top" bg="dark" variant="dark">
-            <ReactBootstrap.Navbar.Brand
-              href="#home"
-              style={{ color: "#b53a84" }}
-            >
+            <ReactBootstrap.Navbar.Brand href="/" style={{ color: "#b53a84" }}>
               PREFERENCIAS-VIDEOS
             </ReactBootstrap.Navbar.Brand>
             <ReactBootstrap.Nav className="mr-auto">
               <ReactBootstrap.Nav.Link href="/">Home</ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link href="/sigin">
+              <ReactBootstrap.Nav.Link href="/SignIN">
                 Sign In
               </ReactBootstrap.Nav.Link>
             </ReactBootstrap.Nav>
