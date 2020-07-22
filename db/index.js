@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const config =require('config');
-// const db = config.get('mongoURI');
-mongoose.connect('mongodb://localhost:27017/accountsdb',
-            { useNewUrlParser: true ,
+var MONGODB_URI = process.env.MONGODB_URL || "mongodb+srv://videoData:504030asd@cluster0.tellj.mongodb.net/test";
+mongoose.connect(MONGODB_URI,
+            { useNewUrlParser: true,
               useCreateIndex:true,
               useUnifiedTopology: true
             })
@@ -11,4 +10,6 @@ mongoose.connect('mongodb://localhost:27017/accountsdb',
 })
 .catch((err)=>{
   console.log("Error when connected to the DB",err)
-});
+})
+const db = mongoose.connection
+module.exports = db;
