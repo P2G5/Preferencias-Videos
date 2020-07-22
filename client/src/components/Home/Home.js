@@ -3,7 +3,7 @@ import youtube from "../../apis/youtube.js";
 import VideoList from "../VideoList/VideoList.js";
 import VideoDetail from "../VideoDetail/VideoDetail";
 import HomePage from "../HomePage/HomePage.js";
-import Navbar from "../Navbar/Navbar.js";
+// import Navbar from "../Navbar/Navbar.js";
 import "./app.css";
 
 // import cors from 'cors';
@@ -34,7 +34,7 @@ class App extends React.Component {
     if (this.state.videos.length === 0) {
       return (
         <div>
-          <Navbar handleFormSubmit={this.handleSubmit} />
+          {/* <Navbar handleFormSubmit={this.handleSubmit} /> */}
           <div className="uicontainer">
             <HomePage />
 
@@ -57,7 +57,7 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <Navbar handleFormSubmit={this.handleSubmit} />
+          {/* <Navbar handleFormSubmit={this.handleSubmit} /> */}
           <div className="uicontainer">
             <div className="eleven wide column">
               <VideoDetail video={this.state.selectedVideo} />

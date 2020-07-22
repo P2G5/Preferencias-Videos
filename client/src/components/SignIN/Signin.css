@@ -1,0 +1,10 @@
+.sign {
+  margin-left: 37%;
+  margin-top: 6%;
+  flex-basis: 400px;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #a9248c;
+  border-color: #c62fd8;
+}

@@ -27,17 +27,17 @@ class Navbar extends React.Component {
         <div>
           <ReactBootstrap.Navbar sticky="top" bg="dark" variant="dark">
             <ReactBootstrap.Navbar.Brand
-              href="#home"
+              href="/"
               style={{ color: "#b53a84" }}
             >
               PREFERENCIAS-VIDEOS
             </ReactBootstrap.Navbar.Brand>
             <ReactBootstrap.Nav className="mr-auto">
               <ReactBootstrap.Nav.Link href="/">Home</ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link href="/sigin">
-                Welcome <a href="/">{localStorage.getItem("name")}</a>
+              <ReactBootstrap.Nav.Link href="/Profil">
+                Welcome <a href="/Profil">{localStorage.getItem("name")}</a>
               </ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link href="/sigin">
+              <ReactBootstrap.Nav.Link href="/SignIN">
                 <a
                   onClick={() => {
                     localStorage.clear();
@@ -71,14 +71,14 @@ class Navbar extends React.Component {
         <div>
           <ReactBootstrap.Navbar sticky="top" bg="dark" variant="dark">
             <ReactBootstrap.Navbar.Brand
-              href="#home"
+              href="/"
               style={{ color: "#b53a84" }}
             >
               PREFERENCIAS-VIDEOS
             </ReactBootstrap.Navbar.Brand>
             <ReactBootstrap.Nav className="mr-auto">
               <ReactBootstrap.Nav.Link href="/">Home</ReactBootstrap.Nav.Link>
-              <ReactBootstrap.Nav.Link href="/sigin">
+              <ReactBootstrap.Nav.Link href="/SignIN">
                 Sign In
               </ReactBootstrap.Nav.Link>
             </ReactBootstrap.Nav>

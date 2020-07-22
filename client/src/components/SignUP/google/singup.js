@@ -22,6 +22,7 @@ class SignUp extends Component {
           onSuccess={this.responseGoogle}
           onFailure={this.responseGoogle}
           cookiePolicy={"single_host_origin"}
+          
         />
       </div>
     );

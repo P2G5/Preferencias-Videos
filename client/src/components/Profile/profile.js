@@ -1,4 +1,4 @@
-const { Component } = require("react");
+// const { Component } = require("react");
 import React from "react";
 
 class Profile extends React.Component {
