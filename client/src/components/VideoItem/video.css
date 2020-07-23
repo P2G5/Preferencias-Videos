@@ -1,13 +1,20 @@
 .video-item {
-    display: flex !important;
-    align-items: center !important;
-    cursor: pointer;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
 }
 
 .video-item.item img {
-    max-width: 200px;
-    max-height: 250px ;
+  width: 600px;
+  max-height: 250px;
 }
-.header{
-    font-size: 10px;
+.title {
+  font-size: 16px;
+  width: 500px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+  color: grey;
 }

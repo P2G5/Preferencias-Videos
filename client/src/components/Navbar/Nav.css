@@ -1,0 +1,19 @@
+.btn-outline-info {
+  color: #b53a84;
+  border-color: #b53a84;
+}
+.btn-outline-info:hover {
+  color: #fff;
+  background-color: #b53a84;
+  border-color: #b53a84;
+}
+.btn-outline-info:not(:disabled):not(.disabled):active {
+  color: #fff;
+  background-color: #b53a84;
+  border-color: #b53a84;
+ 
+}
+
+.Searchbox {
+  text-size-adjust: 1500px;
+}

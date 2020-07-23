@@ -1,7 +1,7 @@
 import React from 'react';
 import './videolist.css';
 import VideoItem from '../VideoItem/VideoItem';
-// import cors from 'cors';
+
 
 const VideoList = ({videos , handleVideoSelect}) => {
     const renderedVideos =  videos.map((video,index) => {

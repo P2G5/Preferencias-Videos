@@ -24,21 +24,3 @@ exports.create_account = (req, res) =>{
 }
 
 
-/* **async function create_account (req,res) { 
-    
-    const {name , email,password   } = req.body;
-    let user = await UserModel.findOne({email});
-    if(user){res.status(400).send("Is exists")}
-    else{
-    const userDoc = new UserModel({name , email,password});
-    // const salt = await bcrypt.genSalt(10);
-    // userDoc.password = await bcrypt.hash(password,salt);
-    await userDoc.save().then((response)=>{
-        res.send("Datasaved")
-    })
-    .catch((err)=>{
-        res.send(err)
-    })
-}
-};
-exports.create_account = create_account ;*/

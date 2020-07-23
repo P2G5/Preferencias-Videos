@@ -1,20 +1,19 @@
-#video-item-search {
+#video-item {
   position: relative;
-  align-items: center;
   background: #ffffff;
-  width: 1300px;
-  margin: 0 auto 50px;
+  width: 120%;
+  margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-#text-search {
+#text {
   margin-left: 350px;
   margin-top: -180px;
   text-align: center;
   align-items: center;
 }
-.btn-search {
+.btn12 {
   background-color: red;
-  margin: 0px 10px auto 350px;
+  margin: 0px 10px auto 550px;
 }

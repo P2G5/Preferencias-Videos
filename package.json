@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest --no-cache",
+    "test": "./node_modules/.bin/jest --no-cache ",
     "start": "nodemon server.js"
   },
+  "type": "--experimental-modules",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,13 +15,18 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "express": "^4.17.1",
     "mongoose": "^5.9.25",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "enzyme": "^3.11.0",
     "jest": "^26.1.0",
     "superagent": "^5.3.1",
     "supertest": "^4.0.2"

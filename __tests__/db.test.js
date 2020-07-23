@@ -1,7 +1,7 @@
 const request = require('supertest');
 const mongoose = require('mongoose');
-require('dotenv').config();
 
+require('dotenv').config();
 describe('Users',() => {
     let connection;
     let database;
@@ -43,5 +43,18 @@ describe('Users',() => {
 
     });
 
+ 
+    test("Login User POST /login/search",async () => {
+        const response = {
+            email: process.env.CUSTOMER_EMAIL,
+            password:process.env.CUSTOMER_PASSWORD
+        };
+        let userEmail = users.findOne(response.email);
+        expect(userEmail.email).toBe(response.email)
+        expect(response.password).toBe(users.password);
+       
 
+    });
+ 
 });
+
