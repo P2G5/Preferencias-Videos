@@ -4,6 +4,8 @@ import Sigin from "./components/SignIN/SignIn.js";
 import SignUp from "./components/SignUP/Signup";
 import home from "./components/Home/Home.js";
 import Profil from "./components/Profile/profile";
+import Show from "./components/Show/Show";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const routing = (
@@ -13,6 +15,7 @@ const routing = (
       <Route path="/SignIN" component={Sigin} />
       <Route path="/SignUP" component={SignUp} />
       <Route path="/Profil" component={Profil} />
+      <Route exact path="/:videoId" component={Show} />
     </Switch>
   </Router>
 );

@@ -10,13 +10,16 @@ const VideoItem = ({ video, handleVideoSelect }) => {
         src={video.snippet.thumbnails.medium.url}
         alt={video.snippet.description}
       />
+
       <div id="text-search">
-        <div className="title ">{video.snippet.title}</div>
-        <div className="description ">{video.snippet.description}</div>
+        <a href={`/${video.id.videoId}`}>
+          <div className="title ">{video.snippet.title}</div>
+          <div className="description ">{video.snippet.description}</div>
+        </a>
       </div>
       <br></br>
       <button className="btn-search" onClick={() => handleVideoSelect(video)}>
-        Add video
+        Add video <h1>{video.id.videoId}</h1>
       </button>
     </div>
   );

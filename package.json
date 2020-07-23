@@ -15,7 +15,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.25",
-    "react-bootstrap": "^1.2.2"
+    "react-bootstrap": "^1.2.2",
+    "react-youtube": "^7.11.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",

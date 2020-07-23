@@ -14,7 +14,7 @@ class Profile extends React.Component {
 
   getVideos = () => {
     axios
-      .get(`http://localhost:5003/videos/${localStorage.getItem("givenName")}`)
+      .get(`/videos/${localStorage.getItem("givenName")}`)
       .then((res) => {
         console.log("done", res.data);
         this.setState({ videos: res.data });
@@ -28,7 +28,7 @@ class Profile extends React.Component {
   };
   remove = (id) => {
     axios
-      .delete(`http://localhost:5003/api/${id}`)
+      .delete(`/api/${id}`)
       .then((res) => {
         console.log("done", res.data);
       })
@@ -52,8 +52,10 @@ class Profile extends React.Component {
               alt={video.descriptionVideo}
             />
             <div id="text">
-              <h1 className="title">{video.descriptionVideo}</h1>
-              <h2 className="description">{video.titleVedio}</h2>
+              <a href={`/${video.linkVideo}`}>
+                <h1 className="title">{video.descriptionVideo}</h1>
+                <h2 className="description">{video.titleVedio}</h2>
+              </a>
               <br />
               <h2 className="date ">
                 {() => {
@@ -83,7 +85,7 @@ class Profile extends React.Component {
           </div>
         );
       });
-    } 
+    }
     return (
       <div>
         <Navbar />

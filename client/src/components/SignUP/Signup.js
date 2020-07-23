@@ -22,7 +22,7 @@ class SignUp extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .post(`http://localhost:5003/createUsers`, {
+      .post(`/createUsers`, {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
