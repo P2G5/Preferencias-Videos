@@ -11,7 +11,7 @@ const VideoDetail = ({ video }) => {
     );
   }
   var obj = {
-    linkVideo: `https://www.youtube.com/embed/${video.id.videoId}`,
+    linkVideo: video.id.videoId,
     titleVedio: video.snippet.title,
     descriptionVideo: video.snippet.description,
     photoUrl: video.snippet.thumbnails.medium.url,
