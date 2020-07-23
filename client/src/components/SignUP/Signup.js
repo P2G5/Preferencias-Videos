@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar.js";
+import "./signUp.css";
 import * as ReactBootstrap from "react-bootstrap";
 
 import axios from "axios";
@@ -22,7 +23,7 @@ class SignUp extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .post(`/createUsers`, {
+      .post(`http://localhost:5003/createUsers`, {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
@@ -43,7 +44,7 @@ class SignUp extends React.Component {
     return (
       <div>
         <Navbar />
-        <ReactBootstrap.Form>
+        <ReactBootstrap.Form className="sign">
           <br />
           <br />
           <ReactBootstrap.InputGroup
@@ -95,7 +96,10 @@ class SignUp extends React.Component {
               style={{ width: "50%", margin: "10px" }}
             />
           </ReactBootstrap.Form.Group>
-          <ReactBootstrap.Button onClick={this.handleSubmit.bind(this)}>
+          <ReactBootstrap.Button
+            className="but"
+            onClick={this.handleSubmit.bind(this)}
+          >
             Sign-UP
           </ReactBootstrap.Button>
         </ReactBootstrap.Form>

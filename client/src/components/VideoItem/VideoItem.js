@@ -19,7 +19,7 @@ const VideoItem = ({ video, handleVideoSelect }) => {
       </div>
       <br></br>
       <button className="btn-search" onClick={() => handleVideoSelect(video)}>
-        Add video <h1>{video.id.videoId}</h1>
+        Add video 
       </button>
     </div>
   );

@@ -151,10 +151,10 @@ class homePage extends React.Component {
           {renderAction}
         </Slider>
 
-        <h2> Drama </h2>
+        {/* <h2> Drama </h2>
         <Slider className="renderComady" {...settings}>
           {renderDrama}
-        </Slider>
+        </Slider> */}
 
         <h2> Romantic </h2>
         <Slider className="renderComady" {...settings}>

@@ -15,9 +15,9 @@ app.use("/", express.static(path.join(__dirname, "/client/build")));
 
 ///-------------------------------------------------------------
 //for homepage form reactjs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+// });
 //-----------------------------------------------
 
 // app.get("/", function (req, res) {
@@ -62,7 +62,7 @@ app.post("/signin", (req, res) => {
 // for videos users
 //-------------------------------------------
 // Add videos for favorite
-app.post("/videos", (req, res) => {
+app.post("/app/videos", (req, res) => {
   let videoDoc = new Video(req.body);
 
   videoDoc.save((err) => {
@@ -75,7 +75,7 @@ app.post("/videos", (req, res) => {
 });
 
 //For search videos for users
-app.get("/videos/:name", function (req, res) {
+app.get("/app/videos/:name", function (req, res) {
   var search = req.params.name;
   console.log(search);
   Video.find({ user: search }, function (err, docs) {

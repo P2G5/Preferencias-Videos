@@ -21,7 +21,7 @@ const VideoDetail = ({ video }) => {
   //save
 
   axios
-    .post("/videos", obj)
+    .post("http://localhost:5003/app/videos", obj)
     .then(() => {
       console.log("done");
     })

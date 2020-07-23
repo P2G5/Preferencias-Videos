@@ -14,7 +14,7 @@ class Profile extends React.Component {
 
   getVideos = () => {
     axios
-      .get(`/videos/${localStorage.getItem("givenName")}`)
+      .get(`http://localhost:5003/app/videos/${localStorage.getItem("givenName")}`)
       .then((res) => {
         console.log("done", res.data);
         this.setState({ videos: res.data });
@@ -28,7 +28,7 @@ class Profile extends React.Component {
   };
   remove = (id) => {
     axios
-      .delete(`/api/${id}`)
+      .delete(`http://localhost:5003/api/${id}`)
       .then((res) => {
         console.log("done", res.data);
       })
