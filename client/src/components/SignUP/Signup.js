@@ -1,17 +1,17 @@
-import React from "react";
-import Navbar from "../Navbar/Navbar.js";
-import * as ReactBootstrap from "react-bootstrap";
-
-import axios from "axios";
+import React from 'react';
+import Navbar from '../Navbar/Navbar.js';
+import * as ReactBootstrap from 'react-bootstrap';
+import './signUp.css';
+import axios from 'axios';
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      password: "",
-      SignUp: "",
+      name: '',
+      email: '',
+      password: '',
+      SignUp: '',
     };
   }
   handleChange(event) {
@@ -29,28 +29,27 @@ class SignUp extends React.Component {
       })
       .then((result) => {
         console.log(result.data);
-        this.setState({ SignUp: "Success Please Login" });
+        this.setState({ SignUp: 'Success Please Login' });
         setTimeout(function() {
-          window.location.href = "/SignIN";
+          window.location.href = '/SignIN';
         }, 2300);
       })
       .catch((err) => {
-        console.log("err", err);
-        this.setState({ SignUp: "error please use other email address" });
+        console.log('err', err);
+        this.setState({ SignUp: 'error please use other email address' });
       });
   }
   render() {
     return (
-      <div>
+      <div className="dev">
         <Navbar />
-        <ReactBootstrap.Form>
+        <ReactBootstrap.Form className='sign'>
           <br />
           <br />
           <ReactBootstrap.InputGroup
-            className="mb-3"
-            style={{ width: "50%", margin: "10px" }}
-            sm={10}
-          >
+            className='mb-3'
+            style={{ width: '50%', margin: 'auto' }}
+            sm={10}>
             <h1>{this.state.SignUp}</h1>
             <ReactBootstrap.InputGroup.Prepend>
               <ReactBootstrap.InputGroup.Text>
@@ -58,47 +57,60 @@ class SignUp extends React.Component {
               </ReactBootstrap.InputGroup.Text>
             </ReactBootstrap.InputGroup.Prepend>
             <ReactBootstrap.FormControl
-              name="name"
-              type="text"
-              placeholder="Enter Your User Name"
+              name='name'
+              type='text'
+              placeholder='Enter Your User Name'
               value={this.state.name}
               onChange={this.handleChange.bind(this)}
             />
           </ReactBootstrap.InputGroup>
           <br />
-          <br />
-          <ReactBootstrap.Form.Group controlId="formGroupEmail">
-            <ReactBootstrap.Form.Label column sm={10}>
-              Email address
-            </ReactBootstrap.Form.Label>
-            <ReactBootstrap.Form.Control
-              type="email"
-              name="email"
-              placeholder="Enter email"
+          <ReactBootstrap.InputGroup
+            className='mb-3'
+            style={{ width: '50%', margin: 'auto' }}
+            sm={10}>
+            <h1>{this.state.SignUp}</h1>
+            <ReactBootstrap.InputGroup.Prepend>
+              <ReactBootstrap.InputGroup.Text>
+                Email address
+              </ReactBootstrap.InputGroup.Text>
+            </ReactBootstrap.InputGroup.Prepend>
+            <ReactBootstrap.FormControl
+              type='email'
+              name='email'
+              placeholder='Enter email'
               value={this.state.email}
               onChange={this.handleChange.bind(this)}
               sm={10}
-              style={{ width: "50%", margin: "10px" }}
             />
-          </ReactBootstrap.Form.Group>
-          <ReactBootstrap.Form.Group controlId="formGroupPassword">
-            <ReactBootstrap.Form.Label column sm={10}>
-              Password
-            </ReactBootstrap.Form.Label>
-            <ReactBootstrap.Form.Control
-              type="password"
-              name="password"
-              placeholder="Password"
+          </ReactBootstrap.InputGroup>
+          <br />
+          <ReactBootstrap.InputGroup
+            className='mb-3'
+            style={{ width: '50%', margin: 'auto' }}
+            sm={10}>
+            <h1>{this.state.SignUp}</h1>
+            <ReactBootstrap.InputGroup.Prepend>
+              <ReactBootstrap.InputGroup.Text>
+                Password
+              </ReactBootstrap.InputGroup.Text>
+            </ReactBootstrap.InputGroup.Prepend>
+            <ReactBootstrap.FormControl
+              type='password'
+              name='password'
+              placeholder='Password'
               value={this.state.password}
               onChange={this.handleChange.bind(this)}
               sm={10}
-              style={{ width: "50%", margin: "10px" }}
             />
-          </ReactBootstrap.Form.Group>
-          <ReactBootstrap.Button onClick={this.handleSubmit.bind(this)}>
+          </ReactBootstrap.InputGroup>
+          <br />
+          <ReactBootstrap.Button className="but" onClick={this.handleSubmit.bind(this)}>
             Sign-UP
           </ReactBootstrap.Button>
         </ReactBootstrap.Form>
+        <br />
+       
       </div>
     );
   }

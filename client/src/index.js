@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const routing = (
   <Router>
+    
     <Switch>
       <Route exact path="/" component={home} />
       <Route path="/SignIN" component={Sigin} />

@@ -6,22 +6,23 @@ An entertainment platform, it provides a collection of movies  for users that al
 + react js
 + Mongodb,Mongoose, MongoDB Atlas
 + YouTube Data API (v3)
-
++ bootstrap
 ## Deployment Link
 
 We use Heroku to deployment [arbkproject][1].
 
-[1]: https://arbkproject.herokuapp.com/  
+[1]: https://polar-depths-67686.herokuapp.com/
+  
 
 ## Demo for current work 
 
 Demo for current work [Demo][1].
 
-[1]: https://drive.google.com/file/d/1xYRdO9K9NbAxN5Fx1CPSc6QFPujQXDI5/view?usp=sharing  
+<!-- [1]:   -->
 
 ## Team members and management 
 
 How we management the team here's the [trello link][1].
 
-[1]: https://trello.com/b/fgg9ANek/preferencias-movies
+[1]: https://trello.com/b/vVAWAqfx/preferencias-videos
 # Preferencias-Videos
