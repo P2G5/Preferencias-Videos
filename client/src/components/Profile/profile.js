@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./style.css"
+import "./style.css";
 import Navbar from "../Navbar/Navbar.js";
 
 class Profile extends React.Component {
@@ -8,6 +8,7 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       videos: [],
+      viewVideos: "",
     };
   }
 
@@ -17,6 +18,9 @@ class Profile extends React.Component {
       .then((res) => {
         console.log("done", res.data);
         this.setState({ videos: res.data });
+        if (this.state.videos.length <= 0) {
+          this.setState({ viewVideos: "There Is No Videos To View" });
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -38,47 +42,54 @@ class Profile extends React.Component {
   };
 
   render() {
-    var viewVideos = this.state.videos.map((video) => {
-      return (
-        <div className="video-item">
-          <img
-            className="ui image"
-            src={video.photoUrl}
-            alt={video.descriptionVideo}
-          />
-          <div className="content">
-            <div className="title">{video.descriptionVideo}</div>
-            <div className="description">{video.titleVedio}</div>
+    if (this.state.videos.length > 0) {
+      var viewVideos = this.state.videos.map((video) => {
+        return (
+          <div id="video-item">
+            <img
+              className="ui image"
+              src={video.photoUrl}
+              alt={video.descriptionVideo}
+            />
+            <div id="text">
+              <h1 className="title">{video.descriptionVideo}</h1>
+              <h2 className="description">{video.titleVedio}</h2>
+              <br />
+              <h2 className="date ">
+                {() => {
+                  video.date.slice("T");
+                }}
+              </h2>
+              <button
+                className="btn12"
+                onClick={() => {
+                  axios
+                    .delete(`http://localhost:5003/api/${video._id}`)
+                    .then((res) => {
+                      console.log("done", res.data);
+                    })
+                    .then(() => {
+                      this.getVideos();
+                    })
+
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }}
+              >
+                Remove
+              </button>
+            </div>
           </div>
-          <br />
-          <div className="date ">{video.date}</div>
-          <button className="btn"
-            onClick={() => {
-              axios
-                .delete(`http://localhost:5003/api/${video._id}`)
-                .then((res) => {
-                  console.log("done", res.data);
-                })
-                .then(() => {
-                  this.getVideos();
-                })
-
-                .catch((err) => {
-                  console.log(err);
-                });
-            }}
-          >
-            Remove
-          </button>
-        </div>
-      );
-    });
-
+        );
+      });
+    } 
     return (
       <div>
         <Navbar />
         <button onClick={this.getVideos}> Show favorite videos</button>
         <div>{viewVideos}</div>
+        <h1>{this.state.viewVideos}</h1>
       </div>
     );
   }

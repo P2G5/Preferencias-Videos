@@ -2,7 +2,7 @@ import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
 import GoogleLogin from "react-google-login";
 import "../SignIN/Signin.css";
-import Navbar from "../Navbar/Navbar.js"
+import Navbar from "../Navbar/Navbar.js";
 import axios from "axios";
 
 class SignIn extends React.Component {
@@ -13,7 +13,7 @@ class SignIn extends React.Component {
       email: "",
       password: "",
       singin: "",
-      loginstate: true,
+      loginstate: null,
     };
     this.responseGoogle = this.responseGoogle.bind(this);
   }
@@ -55,7 +55,7 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
-        <Navbar></Navbar>
+        <Navbar />
         <ReactBootstrap.Form>
           <h1>{this.state.singin}</h1>
           <ReactBootstrap.Form.Group controlId="formHorizontalEmail">

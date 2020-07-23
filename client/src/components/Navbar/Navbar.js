@@ -13,7 +13,7 @@ class Navbar extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value,
+      word: event.target.value,
     });
   };
   handleSubmit = (event) => {
@@ -22,7 +22,7 @@ class Navbar extends React.Component {
   };
 
   render() {
-    if (localStorage.getItem("login")) {
+    if (localStorage.getItem("givenName")) {
       return (
         <div>
           <ReactBootstrap.Navbar sticky="top" bg="dark" variant="dark">

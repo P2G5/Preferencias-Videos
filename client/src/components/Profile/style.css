@@ -1,10 +1,19 @@
-.video-item  {
-  border: 1px solid black;
-  align-items: center;
+#video-item {
+  position: relative;
+  background: #ffffff;
+  width: 120%;
+  margin: 0 auto 100px;
+  padding: 45px;
   text-align: center;
-  width: 30%;
-  border-radius: 5px;
-  background: #282e33;
-  border-top: 3px solid #434a52;
-
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#text {
+  margin-left: 350px;
+  margin-top: -180px;
+  text-align: center;
+  align-items: center;
+}
+.btn12 {
+  background-color: red;
+  margin: 0px 10px auto 550px;
 }

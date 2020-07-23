@@ -28,7 +28,7 @@ class homePage extends React.Component {
     const response = await youtubeApi.get("/search", {
       params: {
         q: "movies amircan: comday",
-        // maxResults: 8,
+        maxResults: 15,
       },
     });
     this.setState({ comady: response.data.items });
@@ -108,26 +108,25 @@ class homePage extends React.Component {
       slidesToScroll: 4,
       initialSlide: 0,
     };
-    
-      return (
-        <form>
-          <h2> Comady </h2>
-          <Slider className="renderComady" {...settings}>
-            {renderComady}
-          </Slider>
 
-          <h2> Action </h2>
-          <Slider className="renderComady" {...settings}>
-            {renderAction}
-          </Slider>
+    return (
+      <form>
+        <h2> Comady </h2>
+        <Slider className="renderComady" {...settings}>
+          {renderComady}
+        </Slider>
 
-          <h2> Drama </h2>
-          <Slider className="renderComady" {...settings}>
-            {renderDrama}
-          </Slider>
-        </form>
-      );
-    
+        <h2> Action </h2>
+        <Slider className="renderComady" {...settings}>
+          {renderAction}
+        </Slider>
+
+        <h2> Drama </h2>
+        <Slider className="renderComady" {...settings}>
+          {renderDrama}
+        </Slider>
+      </form>
+    );
   }
 }
 
